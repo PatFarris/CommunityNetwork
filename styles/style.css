@@ -1,0 +1,288 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.hero {
+    height: 50vh;
+    background-image: url('../images/castle.jpg');
+    background-size: cover;
+    background-position: 50% 25%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+/* Dark overlay (better text contrast) */
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: none;
+}
+
+.hero h1 {
+    font-size: 5vw;
+    margin: 0;
+}
+
+.hero p {
+    font-size: 3vw;
+    margin-top: 2rem;
+    opacity: 0.95;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 40vh;
+        background-image: url('../images/castle.jpg');
+        background-position: 50% 50%;
+        background-size: cover;
+        background-attachment: scroll;
+    }
+
+    .hero h1 {
+        font-size: 9vw;
+    }
+
+    .hero p {
+        font-size: 6vw;
+    }
+}
+
+/* About Section */
+.about {
+    height: 30vh;
+    background-color: #91a191;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    border-bottom: 3px solid white;
+    border-top: 3px solid white;
+}
+
+.about h2 {
+    font-size: 2vw;
+}
+
+.about p {
+    margin: 2.5vh 10rem;
+    font-size: 1.5vw;
+}
+
+@media (max-width: 768px) {
+    .about {
+        padding: 1.5rem 0;
+        height: auto;
+    }
+
+    .about h2 {
+        font-size: 5.5vw;
+        margin-bottom: 2.5vh;
+        margin-top: 0;
+    }
+
+    .about p {
+        font-size: 5vw;
+        margin: 0 2rem;
+    }
+}
+
+/* Services/Offering Secion (mobile) */
+.offering {
+    background-color: #dedbd2;
+    color: #4a5759;
+    text-align: center;
+    display: none;
+    padding: 1.2rem 0;
+}
+
+.offering h2 {
+    margin: 0;
+    padding-bottom: 1rem;
+}
+
+#accordion {
+    width: 50%;
+    margin: auto;
+}
+
+#accordion .ui-accordion-header {
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: #4a5759;
+    color: white;
+    transition: background-color .15s ease-in-out, color 0.5s ease-in-out;
+}
+
+#accordion .ui-accordion-header:hover {
+    background-color: darkgray;
+}
+
+#accordion .ui-accordion-header-active {
+    background-color: darkgray;
+    color: white;
+    border: #e5e5e5;
+}
+
+#accordion .ui-accordion-header .ui-icon {
+    display: none;
+}
+
+#accordion .ui-accordion-content {
+    padding: 0;
+}
+
+@media (max-width: 768px) {
+    .offering {
+        display: block;
+    }
+
+    #accordion {
+        width: 80%;
+    }
+
+    #accordion .ui-accordion-content {
+        padding: 0 1rem;
+    }
+}
+
+/* Services/Offering Section (desktop) */
+.services {
+    height: 30vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.left {
+    background-color: #4a5759;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vw;
+    border-right: 1.5px solid white;
+}
+
+.right {
+    background-color: #dedbd2;
+    color: #4a5759;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5vw;
+    border-left: 1.5px solid white;
+}
+
+@media (max-width: 768px) {
+    .services {
+        display: none;
+    }
+
+    .left {
+        font-size: 1rem;
+    }
+}
+
+/* Sign Up Section */
+.signUp {
+    height: 485px;
+    display: flex;
+    flex-direction: column;
+    background-color: #b0c4b1;
+    background-image: url('../images/bg.JPG');
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+    border-top: 3px solid white;
+}
+
+.signUp::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.45);
+    z-index: 1;
+}
+
+iframe {
+    width: 60%;
+    height: 100%;
+    margin: auto;
+    border: none;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .signUp {
+        background-color: #4a5759;
+        height: 495px;
+    }
+
+    iframe {
+        width: 85%;
+        height: 100%;
+    }
+}
+
+/* Animations /*
+/* Fade-in base state */
+section:not(.hero) {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* When revealed */
+section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Footer */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #4a5759;
+    color: white;
+    position: absolute;
+    bottom: -500;
+    height: 10vh;
+    width: 100%;
+    font-size: 1.5vw;
+    border-top: 3px solid white;
+}
+
+@media (max-width: 768px) {
+    footer {
+        font-size: 1.2rem;
+    }
+}
